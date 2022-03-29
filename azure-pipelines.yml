@@ -22,8 +22,9 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: false
-    arguments: '-o $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/export.zip'
-    zipAfterPublish: true
+    arguments: '--configuration Release --output $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/publish_output'
+    modifyOutputPath: false
+    zipAfterPublish: false
     projects: '**/*.csproj'
 
 - task: PowerShell@2
@@ -35,6 +36,41 @@ steps:
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin
-      # # ls $(System.DefaultWorkingDirectory)TestFunctionApp/FunctionApp1/bin/Debug
-      # ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/netcoreapp3.1
-      # ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/netcoreapp3.1/bin
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/publish_output'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |      
+      Write-Host 'Working Directoy: $(Build.ArtifactStagingDirectory)
+      ls '$(Build.ArtifactStagingDirectory)
+      ls '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    ArtifactName: 'drop'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |      
+      Write-Host "Hello World"
+      ls $(Build.ArtifactStagingDirectory)
+
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubsciption: "RAW-S2-CTUS-DEV"
+    appType: 'functionApp'
+    appName: 'xyz'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    appSettings: '-Port 5000 -RequestTimeout 5000'
+    configurationStrings: '-phpVersion 5.6'
+    deploymentMethod: 'zipDeploy'
