@@ -1,0 +1,238 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        // "appTagValue": {
+        //     "type": "string"
+        // },
+        // "planName": {
+        //     "type": "string"
+        // },
+        // "eventGridDomain": {
+        //     "type": "string"
+        // },
+        // "storageAccountName": {
+        //     "type": "string"
+        // },
+        // "functionAppName": {
+        //     "type": "string"
+        // },
+        // "eventGridTopic": {
+        //     "type": "string"
+        // },
+        // "eventGridDomainResourceId": {
+        //     "type": "string"
+        // },
+        // "eventGridSubscriptionName": {
+        //     "type": "string"
+        // },
+        // "eventGridSubscriptionUrl": {
+        //     "type": "string"
+        // },
+        // "appInsightsDisabled": {
+        //     "type": "bool"
+        // }
+    },
+    "functions": [],
+    "variables": {
+    },
+    "resources": [
+        // {
+        //     "name": "[parameters('functionAppName')]",
+        //     "type": "Microsoft.Web/sites",
+        //     "apiVersion": "2018-11-01",
+        //     "location": "[resourceGroup().location]",
+        //     "kind": "functionapp",
+        //     "dependsOn": [
+        //         "[resourceId('Microsoft.Web/serverfarms', parameters('planName'))]",
+        //         "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        //     ],
+        //     // "tags": { "app": "[parameters('appTagValue')]" },
+        //     "identity": {
+        //         "type": "SystemAssigned"
+        //     },
+        //     "properties": {
+        //         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('planName'))]",
+        //         "siteConfig": {
+        //             "appSettings": [
+        //                 {
+        //                     "name": "AzureWebJobsDashboard",
+        //                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')),'2015-05-01-preview').key1)]"
+        //                 },
+        //                 {
+        //                     "name": "AzureWebJobsStorage",
+        //                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')),'2015-05-01-preview').key1)]"
+        //                 },
+        //                 {
+        //                     "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+        //                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')),'2015-05-01-preview').key1)]"
+        //                 },
+        //                 {
+        //                     "name": "WEBSITE_CONTENTSHARE",
+        //                     "value": "[toLower(parameters('functionAppName'))]"
+        //                 },
+        //                 {
+        //                     "name": "FUNCTIONS_EXTENSION_VERSION",
+        //                     "value": "~3"
+        //                 },
+        //                 {
+        //                     "name": "[concat(parameters('eventGridDomain'), '_ConnectionString')]",
+        //                     "value": "[reference(parameters('eventGridDomainResourceId'), '2021-12-01').endpoint]"
+        //                 },
+        //                 {
+        //                     "name": "[concat(parameters('eventGridDomain'), '_Key')]",
+        //                     "value": "[listKeys(parameters('eventGridDomainResourceId'), '2018-09-15-preview').key1]"
+        //                 },
+        //                 // {
+        //                 //     "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+        //                 //     "value": "[reference(resourceId('microsoft.insights/components/', concat(parameters('functionAppName'), '.AppInsights')), '2015-05-01').InstrumentationKey]"
+        //                 // },
+        //                 {
+        //                     "name": "FUNCTIONS_WORKER_RUNTIME",
+        //                     "value": "dotnet"
+        //                 },
+        //                 {
+        //                     "name": "AW_NOTIFICATIONS_EVENT_GRID_DOMAIN_ENDPOINT",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_NOTIFICATIONS_EVENT_GRID_DOMAIN_ACCESS_KEY",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_NOTIFICATIONS_EVENT_GRID_DOMAIN_TOPIC_NAME",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_SPLUNK_HOST_URL",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_SPLUNK_TOKEN",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_CID_REGISTRATION_SECRET",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_CID_URL",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_LOGIC_APPS_ALERT_REPORTING_SLACK_URL",
+        //                     "value": ""
+        //                 },
+        //                 {
+        //                     "name": "AW_AZURE_CLOUD",
+        //                     "value": ""
+        //                 }
+        //             ]
+        //         }
+        //     }
+        // },
+        // {
+        //     "name": "[parameters('eventGridDomain')]",
+        //     "type": "Microsoft.EventGrid/domains",
+        //     "apiVersion": "2020-06-01",
+        //     "location": "[resourceGroup().location]",
+        //     "tags": { "app": "[parameters('appTagValue')]" },
+        //     "properties": {
+        //         "inputSchema": "EventGridSchema",
+        //         "publicNetworkAccess": "Disabled"
+        //     },
+        //     "resources": [
+        //         {
+        //             "name": "[parameters('eventGridTopic')]",
+        //             "type": "topics",
+        //             "apiVersion": "2020-06-01",
+        //             "dependsOn": [
+        //                 "[resourceId('Microsoft.EventGrid/domains', parameters('eventGridDomain'))]"
+        //             ]
+        //         }
+        //     ]
+        // },
+        // {
+        //     "name": "[concat(parameters('eventGridTopic'), '_Subscription')]",
+        //     "scope": "[format('Microsoft.EventGrid/domains/{0}/topics/{1}', parameters('eventGridDomain'), parameters('eventGridTopic'))]",
+        //     "type": "Microsoft.EventGrid/eventSubscriptions",
+        //     "apiVersion": "2020-06-01",
+        //     "properties": {
+        //         "destination": {
+        //             "endpointType": "AzureFunction",
+        //             "properties": {
+        //                 "resourceId": "[concat(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '/functions', '/HandleEventGridTestEvent')]"
+        //             }
+        //         },
+        //         "filter": {},
+        //         "labels": [],
+        //         "eventDeliverySchema": "EventGridSchema",
+        //         "retryPolicy": {
+        //             "maxDeliveryAttempts": 10,
+        //             "eventTimeToLiveInMinutes": 15
+        //         }
+        //     },
+        //     "dependsOn": [
+        //         "[resourceId('Microsoft.EventGrid/domains', parameters('eventGridDomain'))]",
+        //         "[resourceId('Microsoft.EventGrid/domains/topics', parameters('eventGridDomain'), parameters('eventGridTopic'))]"
+        //     ]
+        // },
+        // {
+        //     "condition": "[equals(parameters('appInsightsDisabled'), 'false')]",
+        //     "apiVersion": "2015-05-01",
+        //     "name": "function-app-01",
+        //     "type": "microsoft.insights/components",
+        //     "location": "centralus",
+        //     "tags": {},
+        //     "properties": {
+        //         "ApplicationId": "[parameters('appInsightsDisabled')]",
+        //         "Request_Source": "IbizaWebAppExtensionCreate"
+        //     }
+        // },
+        {
+            "type": "Microsoft.EventGrid/domains",
+            "apiVersion": "2021-12-01",
+            "name": "faizan-test-event-grid",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "inputSchema": "EventGridSchema",
+                "publicNetworkAccess": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.EventGrid/domains/topics",
+            "apiVersion": "2021-12-01",
+            "name": "faizan-test-event-grid/workflow-notifications558575",
+            "dependsOn": [
+                "[resourceId('Microsoft.EventGrid/domains', 'faizan-test-event-grid')]"
+            ]
+        },
+        {
+            "type": "Microsoft.EventGrid/eventSubscriptions",
+            "apiVersion": "2020-06-01",
+            "scope": "faizan-test-event-grid/workflow-notifications558575",
+            "name": "faizan-test-event-grid-subscription",
+            "properties": {
+                "destination": {
+                    "endpointType": "WebHook",
+                    "properties": {
+                        "endpointUrl": "https://google.com"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventGrid/topics', 'faizan-test-event-grid/workflow-notifications558575')]"
+            ]
+        }
+    ]
+    // "outputs": {
+    //     "functionAppResourceId": {
+    //         "type": "string",
+    //         "value": "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+    //     },
+    //     "functionAppHost": {
+    //         "type": "string",
+    //         "value": "[reference(parameters('functionAppName'), '2021-02-01').hostNames[0]]"
+    //     }
+    // }
+}
