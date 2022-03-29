@@ -34,6 +34,6 @@ steps:
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin
-      ls $(System.DefaultWorkingDirectory)TestFunctionApp/FunctionApp1/bin/Debug
+      # ls $(System.DefaultWorkingDirectory)TestFunctionApp/FunctionApp1/bin/Debug
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/netcoreapp3.1
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/netcoreapp3.1/bin
