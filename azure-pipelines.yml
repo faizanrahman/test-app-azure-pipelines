@@ -13,11 +13,6 @@ steps:
 - script: echo Hello, world! - Name of branch $(Build.SourceBranchName)
   displayName: 'Run a one-line script'
 
-- script: |
-    Write-Host Powershell script Name of branch $(Build.SourceBranchName)
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
