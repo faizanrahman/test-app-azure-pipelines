@@ -37,6 +37,10 @@ steps:
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1
       ls $(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin
 
+      Write-Host $(Build.BuildId)
+      Write-Host $(Build.BuildName)
+      Write-Host $(Build.BuildNumber)
+
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/TestFunctionApp/FunctionApp1/bin/publish_output'
