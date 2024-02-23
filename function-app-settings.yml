@@ -18,3 +18,11 @@ steps:
 - task: FuncToolsInstaller@0
   inputs:
     version: 'latest'
+
+- task: AzurePowerShell@5
+  inputs:
+    ScriptType: 'InlineScript'
+    Inline: |
+      Write-Host "Inside task"
+      func azure functionapp fetch-app-settings aw-qms-ctus-dev
+    azurePowerShellVersion: 'LatestVersion'
