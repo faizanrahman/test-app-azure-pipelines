@@ -21,6 +21,7 @@ steps:
 
 - task: AzurePowerShell@5
   inputs:
+    azureSubscription: 'AW Dev'
     ScriptType: 'InlineScript'
     Inline: |
       Write-Host "Inside task"
