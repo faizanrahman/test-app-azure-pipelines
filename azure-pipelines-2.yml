@@ -11,25 +11,6 @@ steps:
   inputs:
     version: 'latest'
 
-- task: PowerShell@2
-  enabled: false
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      Write-Host "Hello World"
-
-      Write-Host $pwd
-
-      cd TestFunctionApp
-
-      ls
-
-      $functionAppName = "aw-qms-ctus-play919878"
-
-      func azure functionapp fetch-app-settings $functionAppName
-
 - task: AzureCLI@2
   inputs:
     azureSubscription: 'AW Dev'
