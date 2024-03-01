@@ -32,7 +32,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$pwd\TestFunctionApp\FunctionApp1\local.settings.json'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)\TestFunctionApp\FunctionApp1\local.settings.json'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
