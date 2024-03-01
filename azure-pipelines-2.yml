@@ -30,6 +30,8 @@ steps:
 
       func azure functionapp fetch-app-settings $functionAppName
 
+      func decrypt
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)\TestFunctionApp\FunctionApp1\local.settings.json'
