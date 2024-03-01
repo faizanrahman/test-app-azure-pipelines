@@ -21,4 +21,10 @@ steps:
 
       Write-Host $pwd
 
+      cd TestFunctionApp
+
       ls
+
+      $functionAppName = "aw-qms-ctus-play919878"
+
+      func azure functionapp fetch-app-settings $functionAppName
