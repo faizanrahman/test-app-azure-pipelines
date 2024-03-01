@@ -9,5 +9,14 @@ pool:
   vmImage: windows-latest
 
 steps:
-- script: echo Hello, world! - Name of branch $(Build.SourceBranchName)
-  displayName: 'Run a one-line script'
+- task: FuncToolsInstaller@0
+  inputs:
+    version: 'latest'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
