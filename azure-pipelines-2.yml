@@ -41,6 +41,7 @@ steps:
       Write-Host $pwd
 
       cd TestFunctionApp
+      cd FunctionApp1
 
       ls
 
